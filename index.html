@@ -1249,17 +1249,23 @@ section {
   background: var(--blue-tint);
   color: var(--blue-deep);
 }
+@media (hover: hover) {
 .inset-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 1px 2px rgba(34, 36, 29, 0.06), 0 22px 44px -18px rgba(34, 36, 29, 0.36);
 }
+}
+@media (hover: hover) {
 .inset-card:hover img {
   transform: scale(1.04);
 }
+}
+@media (hover: hover) {
 .inset-card:hover .plus {
   background: var(--blue);
   color: var(--white);
   transform: rotate(90deg);
+}
 }
 
 /* Quality step cards */
@@ -1283,15 +1289,21 @@ section {
   color: var(--ink);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
 }
+@media (hover: hover) {
 .step:hover .step-media img {
   transform: scale(1.05);
 }
+}
+@media (hover: hover) {
 .step:hover .card-open .plus {
   background: var(--white);
   transform: rotate(90deg) scale(1.06);
 }
+}
+@media (hover: hover) {
 .step:hover h3 {
   color: var(--white);
+}
 }
 #quality .card-open:focus-visible {
   outline-color: var(--blue-light);
@@ -1299,6 +1311,9 @@ section {
 
 /* ---- Lightbox (Apple-style sheet) ---- */
 body.lb-locked {
+  position: fixed;
+  left: 0;
+  right: 0;
   overflow: hidden;
 }
 .lightbox {
@@ -1358,7 +1373,8 @@ body.lb-locked {
 .lightbox.is-open .lb-scrim {
   opacity: 1;
 }
-.lightbox.is-open .lb-panel {
+.lightbox.is-open .lb-panel,
+.lightbox.is-open.is-square .lb-panel {
   opacity: 1;
   transform: none;
 }
@@ -1510,6 +1526,10 @@ body.lb-locked {
     max-height: 92vh;
     max-height: 92dvh;
     transform: translateY(100%);
+  }
+  .lightbox.is-open .lb-panel,
+  .lightbox.is-open.is-square .lb-panel {
+    transform: none;
   }
   .lb-body {
     padding: 22px 22px calc(26px + env(safe-area-inset-bottom));
@@ -2341,7 +2361,7 @@ h2 {
     var lbPrev = lb.querySelector('[data-step="-1"]');
     var lbNext = lb.querySelector('[data-step="1"]');
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var items = [], index = 0, opener = null, closing = false;
+    var items = [], index = 0, opener = null, closing = false, lockY = 0;
 
     function readCard(card) {
       var img = card.querySelector("img");
@@ -2388,7 +2408,9 @@ h2 {
       index = cards.indexOf(card);
       opener = btn;
       render(false);
+      lockY = window.scrollY || window.pageYOffset;
       lb.showModal();
+      document.body.style.top = -lockY + "px";
       document.body.classList.add("lb-locked");
       if (lenis) lenis.stop();
       requestAnimationFrame(function () {
@@ -2404,7 +2426,10 @@ h2 {
         lb.close();
         closing = false;
         document.body.classList.remove("lb-locked");
+        document.body.style.top = "";
         if (lenis) lenis.start();
+        window.scrollTo(0, lockY);
+        if (lenis) lenis.scrollTo(lockY, { immediate: true, force: true });
         if (opener) opener.focus({ preventScroll: true });
       }, reduce ? 0 : 380);
     }
