@@ -24,14 +24,14 @@
 <meta name="twitter:description" content="Wholesale Strelitzia reginae and nicolai seed, hand-picked at Kei Mouth and air-freighted to distributors worldwide.">
 <meta name="twitter:image" content="https://YOUR-SITE-ADDRESS/og-image.jpg">
 <meta name="theme-color" content="#22241d">
-<title>Wildcoast Seeds (Sean's Version, Blue)</title>
+<title>Wildcoast Seeds | Wholesale Strelitzia Seed from South Africa</title>
 <meta name="description" content="Wildcoast Seeds is a wholesale Strelitzia reginae and Strelitzia nicolai seed grower and exporter based at Kei Mouth on South Africa's Wild Coast, supplying nursery seed distributors worldwide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Wildcoast Seeds, Sean's version
-   Palette pulled from the strelitzia flower itself, following Sean's original mockup direction. */
+/* Wildcoast Seeds
+   Palette pulled from the strelitzia flower itself, following the original mockup direction. */
 
 :root {
   --cream: #f2f3ec;
@@ -997,6 +997,194 @@ section {
   }
 }
 
+
+/* Headline highlight: Reginae / Nicolai */
+.section-header h2 .hl {
+  color: var(--blue);
+  font-style: italic;
+  background: linear-gradient(transparent 62%, rgba(154, 170, 240, 0.38) 62%, rgba(154, 170, 240, 0.38) 92%, transparent 92%);
+  padding: 0 0.08em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Quote form card */
+.contact-grid .contact-list {
+  align-self: start;
+}
+.quote-card {
+  background: var(--white);
+  color: var(--ink);
+  border-radius: 18px;
+  padding: 40px 40px 32px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  align-self: start;
+}
+.quote-card h3 {
+  color: var(--ink);
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  margin-bottom: 0.3em;
+}
+.quote-intro {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 26px;
+}
+.quote-form {
+  display: grid;
+  gap: 20px;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.field label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.field label .opt {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1.5px solid rgba(34, 36, 29, 0.2);
+  border-radius: 0;
+  padding: 8px 0 10px;
+  transition: border-color 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.field textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(34, 36, 29, 0.42);
+}
+.field select:invalid,
+.field select:has(option[value=""]:checked) {
+  color: rgba(34, 36, 29, 0.42);
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--blue);
+}
+.field.has-error input,
+.field.has-error select {
+  border-bottom-color: #b3261e;
+}
+.select-wrap {
+  position: relative;
+}
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  margin-top: -4px;
+  border: 5px solid transparent;
+  border-top-color: var(--ink);
+  pointer-events: none;
+}
+.select-wrap select {
+  padding-right: 24px;
+  cursor: pointer;
+}
+.quote-submit {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 10px 10px 28px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(34, 36, 29, 0.14);
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -12px rgba(34, 36, 29, 0.35);
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.quote-submit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 1.1rem;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.quote-submit:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+.quote-submit:hover .quote-submit-icon {
+  background: var(--white);
+  color: var(--blue);
+  transform: translateX(3px);
+}
+.quote-card :focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+.form-error {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #b3261e;
+}
+.quote-success {
+  padding: 24px 0 8px;
+}
+.quote-success h3 {
+  color: var(--blue-deep);
+}
+.quote-note {
+  margin: 20px 0 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(34, 36, 29, 0.55);
+}
+@media (max-width: 760px) {
+  .quote-card {
+    padding: 28px 20px 24px;
+    border-radius: 14px;
+  }
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 section[id] {
   scroll-margin-top: 72px;
 }
@@ -1312,7 +1500,7 @@ h2 {
   <div class="container">
     <div class="section-header centered reveal">
       <span class="variety-tag orange">Strelitzia reginae</span>
-      <h2>Reginae: the queen of our fields</h2>
+      <h2><span class="hl">Reginae</span>: the queen of our fields</h2>
     </div>
     <div class="split reverse">
       <div class="split-media reveal">
@@ -1338,7 +1526,7 @@ h2 {
   <div class="container">
     <div class="section-header centered reveal">
       <span class="variety-tag">Strelitzia nicolai</span>
-      <h2>Nicolai: the giant white bird of paradise</h2>
+      <h2><span class="hl">Nicolai</span>: the giant white bird of paradise</h2>
     </div>
     <div class="split">
       <!-- NOTE for Megan: no confirmed Nicolai-specific photo came through in Etienne's first batch.
@@ -1474,16 +1662,82 @@ h2 {
           <a class="map-link" href="https://maps.google.com/maps?q=Kei%20Mouth%2C%20Eastern%20Cape%2C%20South%20Africa" target="_blank" rel="noopener">View on Google Maps</a>
         </li>
       </ul>
-      <div class="enquiry-panel reveal">
-        <h3>What to include in your enquiry</h3>
-        <p>A few details up front let us come back to you with a firm quote rather than a round of questions.</p>
-        <ul class="enquiry-list">
-          <li><strong>Variety</strong><span>Reginae, Nicolai, or both</span></li>
-          <li><strong>Grade</strong><span>A-grade, B-grade, or a mix</span></li>
-          <li><strong>Quantity</strong><span>An estimate in kilograms or tonnes</span></li>
-          <li><strong>Destination</strong><span>Country and receiving airport</span></li>
-          <li><strong>Timing</strong><span>When you need the seed to arrive</span></li>
-        </ul>
+      <!-- NOTE for Megan: this form has no backend yet (GitHub Pages is static).
+           To make it live, point the form's action at a form service such as Formspree
+           (action="https://formspree.io/f/XXXX" method="POST") and remove the demo script at the
+           bottom of the page that intercepts the submit. -->
+      <div class="quote-card reveal">
+        <h3>Request a wholesale quote</h3>
+        <p class="quote-intro">Tell us what you need and we will come back to you with a firm quote, usually within one business day.</p>
+        <form class="quote-form" id="quote-form" novalidate>
+          <div class="field">
+            <label for="qf-name">Full name</label>
+            <input id="qf-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+          </div>
+          <div class="field">
+            <label for="qf-company">Company</label>
+            <input id="qf-company" name="company" type="text" autocomplete="organization" placeholder="Company name" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="qf-email">Work email</label>
+              <input id="qf-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+            </div>
+            <div class="field">
+              <label for="qf-phone">Phone or WhatsApp <span class="opt">(optional)</span></label>
+              <input id="qf-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 000 0000">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="qf-variety">Variety</label>
+              <div class="select-wrap">
+                <select id="qf-variety" name="variety" required>
+                  <option value="" disabled selected>Choose</option>
+                  <option>Reginae</option>
+                  <option>Nicolai</option>
+                  <option>Both</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="qf-grade">Grade</label>
+              <div class="select-wrap">
+                <select id="qf-grade" name="grade">
+                  <option value="" disabled selected>Choose</option>
+                  <option>A-grade</option>
+                  <option>B-grade</option>
+                  <option>A mix of both</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="qf-qty">Estimated quantity</label>
+              <input id="qf-qty" name="quantity" type="text" placeholder="e.g. 50 kg">
+            </div>
+            <div class="field">
+              <label for="qf-dest">Destination</label>
+              <input id="qf-dest" name="destination" type="text" placeholder="Country and airport">
+            </div>
+          </div>
+          <div class="field">
+            <label for="qf-msg">Timing and anything else <span class="opt">(optional)</span></label>
+            <textarea id="qf-msg" name="message" rows="3" placeholder="When you need the seed to arrive, and any other details"></textarea>
+          </div>
+          <button type="submit" class="quote-submit">
+            <span>Send my quote request</span>
+            <span class="quote-submit-icon" aria-hidden="true">&rarr;</span>
+          </button>
+          <p class="form-error" role="alert" hidden>Please add your name, company, a valid email and the variety you need.</p>
+        </form>
+        <div class="quote-success" hidden>
+          <h3>Thank you, your request is in.</h3>
+          <p>We will be in touch shortly with pricing and availability.</p>
+        </div>
+        <p class="quote-note">Demonstration form on this staging page. On the live site it goes straight to the Wildcoast Seeds inbox.</p>
       </div>
     </div>
   </div>
@@ -1536,7 +1790,7 @@ h2 {
 
 </script>
 <script>
-/* Wildcoast Seeds, Sean's version
+/* Wildcoast Seeds
    Smooth scroll (Lenis) plus light, restrained reveals (GSAP + ScrollTrigger).
    Only transform and opacity are animated. Reduced motion is honoured throughout. */
 
@@ -1695,6 +1949,27 @@ h2 {
     /* Reduced motion, or the libraries failed to load: show everything immediately */
     document.querySelectorAll(".reveal").forEach(function (el) {
       el.classList.add("is-visible");
+    });
+  }
+
+  /* Quote form (demo: no backend on the staging page) */
+  var qf = document.getElementById("quote-form");
+  if (qf) {
+    qf.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var ok = true;
+      ["qf-name", "qf-company", "qf-email", "qf-variety"].forEach(function (id) {
+        var el = document.getElementById(id);
+        var valid = el.checkValidity() && el.value.trim() !== "";
+        el.closest(".field").classList.toggle("has-error", !valid);
+        if (!valid) ok = false;
+      });
+      qf.querySelector(".form-error").hidden = ok;
+      if (!ok) return;
+      qf.hidden = true;
+      var card = qf.closest(".quote-card");
+      card.querySelector(".quote-intro").hidden = true;
+      card.querySelector(".quote-success").hidden = false;
     });
   }
 
