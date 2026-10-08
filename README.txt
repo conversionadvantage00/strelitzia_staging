@@ -27,7 +27,14 @@ Quote form
       2. Delete the "Quote form (demo ...)" block in the script near the bottom of the page.
       3. Remove the "Demonstration form..." line under the button.
 
+Photo pop-ups
+  - The small photo cards (On the farm, Reginae, Nicolai) and the four Quality steps open
+    into a pop-up. The three small cards only have 200px copies of their photos, so they look
+    soft when enlarged. To fix, upload the full-size photo (e.g. sunbird.jpg) next to
+    index.html and add data-full="sunbird.jpg" to that <div class="inset-card" ...> tag.
+
 Still to do before going public
   - Phone, WhatsApp and email (currently "[to follow]" in the Contact section).
   - Real Nicolai photos (the two images in that section are reginae placeholders).
   - Connect the quote form (see above).
+  - Full-size photos for the three small photo cards (see Photo pop-ups).
