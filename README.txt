@@ -1,4 +1,4 @@
-Wildcoast Seeds website (staging)
+Wild Coast Seeds website (staging)
 
 Files
   index.html            The whole site. Photos, styles and scripts are built in.
@@ -28,13 +28,20 @@ Quote form
       3. Remove the "Demonstration form..." line under the button.
 
 Photo pop-ups
-  - The small photo cards (On the farm, Reginae, Nicolai) and the four Quality steps open
-    into a pop-up. The three small cards only have 200px copies of their photos, so they look
-    soft when enlarged. To fix, upload the full-size photo (e.g. sunbird.jpg) next to
+  - The small photo cards and the four Quality steps open into a pop-up. The sunbird and
+    S. reginae cards only have 200px copies of their photos, so they look soft when enlarged. To fix, upload the full-size photo (e.g. sunbird.jpg) next to
     index.html and add data-full="sunbird.jpg" to that <div class="inset-card" ...> tag.
+
+Phytosanitary Certificate
+  - Save the certificate (JPG, PNG or PDF) next to index.html, e.g. phytosanitary-certificate.pdf.
+  - In index.html, search for data-cert="" and put the file name between the quotes:
+      data-cert="phytosanitary-certificate.pdf"
+  - A "View a sample Phytosanitary Certificate" link then appears in the Step 03 pop-up.
+  - Upload the certificate file to GitHub alongside index.html.
 
 Still to do before going public
   - Phone, WhatsApp and email (currently "[to follow]" in the Contact section).
   - Real Nicolai photos (the two images in that section are reginae placeholders).
   - Connect the quote form (see above).
-  - Full-size photos for the three small photo cards (see Photo pop-ups).
+  - Full-size photos for the sunbird and S. reginae photo cards (see Photo pop-ups).
+  - Phytosanitary Certificate (see above).
