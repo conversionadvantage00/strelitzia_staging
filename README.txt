@@ -4,10 +4,12 @@ Files
   index.html            The whole site. Photos, styles and scripts are built in.
   og-image.jpg          The picture shown when the link is shared (WhatsApp, LinkedIn etc.).
   apple-touch-icon.png  The icon used if someone saves the site to an iPhone home screen.
+  farm-aerial.mp4       Drone video in the Wholesale section (plays silently on a loop).
+  farm-aerial-poster.jpg  Still frame shown while the video loads.
   README.txt            This file.
 
 Publish on GitHub Pages
-  1. Create a new repository and upload all four files to its main folder
+  1. Create a new repository and upload all six files to its main folder
      (not inside a sub-folder).
   2. Settings > Pages > Deploy from a branch > main, / (root) > Save.
   3. The site goes live at https://USERNAME.github.io/REPOSITORY-NAME/ within a few minutes.
