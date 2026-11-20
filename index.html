@@ -2461,6 +2461,43 @@ p, li {
   }
 }
 
+/* ---- Video pause button ---- */
+.wholesale-media {
+  position: relative;
+}
+.video-toggle {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(20, 22, 15, 0.32);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  backdrop-filter: blur(12px) saturate(1.4);
+  color: var(--white);
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+.video-toggle .i-play { display: none; }
+.video-toggle.is-paused .i-play { display: block; margin-left: 2px; }
+.video-toggle.is-paused .i-pause { display: none; }
+.video-toggle:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+  opacity: 1;
+}
+@media (hover: hover) {
+  .wholesale-media:hover .video-toggle { opacity: 1; }
+  .video-toggle:hover { background: rgba(20, 22, 15, 0.5); transform: scale(1.06); }
+}
+
 [hidden] { display: none !important; }
 </style>
 </head>
@@ -2681,9 +2718,13 @@ p, li {
         </div>
       </div>
       <div class="wholesale-media reveal">
-        <video class="ws-video" autoplay muted loop playsinline preload="metadata" poster="farm-aerial-poster.jpg" aria-label="Drone footage flying over the Strelitzia rows on the Wild Coast Seeds farm at Kei Mouth">
+        <video class="ws-video" autoplay muted loop playsinline preload="metadata" poster="farm-aerial-poster.jpg" aria-label="Drone footage over the Strelitzia rows on the Wild Coast Seeds farm at Kei Mouth">
           <source src="farm-aerial.mp4" type="video/mp4">
         </video>
+        <button type="button" class="video-toggle" aria-label="Pause video" aria-pressed="false">
+          <svg class="i-pause" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1.2" fill="currentColor"/></svg>
+          <svg class="i-play" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.2-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -3172,20 +3213,40 @@ p, li {
     });
   }
 
-  /* Drone video: respect reduced motion, pause when off screen */
+  /* Drone video: pause button, reduced motion, pause when off screen */
   var wsVideo = document.querySelector(".ws-video");
+  var wsToggle = document.querySelector(".video-toggle");
   if (wsVideo) {
+    var userPaused = false;
+    var syncToggle = function () {
+      if (!wsToggle) return;
+      var paused = wsVideo.paused;
+      wsToggle.classList.toggle("is-paused", paused);
+      wsToggle.setAttribute("aria-label", paused ? "Play video" : "Pause video");
+      wsToggle.setAttribute("aria-pressed", paused ? "true" : "false");
+    };
+    var tryPlay = function () { var p = wsVideo.play(); if (p && p.catch) p.catch(function () {}); };
+    wsVideo.addEventListener("play", syncToggle);
+    wsVideo.addEventListener("pause", syncToggle);
+    if (wsToggle) {
+      wsToggle.addEventListener("click", function () {
+        if (wsVideo.paused) { userPaused = false; tryPlay(); }
+        else { userPaused = true; wsVideo.pause(); }
+      });
+    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      userPaused = true;
       wsVideo.removeAttribute("autoplay");
       wsVideo.pause();
     } else if ("IntersectionObserver" in window) {
       new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
-          if (e.isIntersecting) { var p = wsVideo.play(); if (p && p.catch) p.catch(function () {}); }
+          if (e.isIntersecting) { if (!userPaused) tryPlay(); }
           else { wsVideo.pause(); }
         });
       }, { threshold: 0.15 }).observe(wsVideo);
     }
+    syncToggle();
   }
 
   /* Footer year */
